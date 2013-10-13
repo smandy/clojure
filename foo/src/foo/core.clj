@@ -33,13 +33,11 @@
 
 (def addOne #(+ %1 1 ))
 
-(addOne y10)
-
-(myFun 10)
-
 (range 1 10 20)
 
-(defn nz [x] ( (comp not zero?) x ))
+; (defn nz [x] ( (comp not zero?) x ))
+
+(def nz (comp not zero?))
 
 (letfn [ (nz [x] ( (comp not zero?) x )) ]
   ( ->> 
@@ -69,7 +67,7 @@
 
 (def portThree { "AAPL.O" -100 })
                
-(def port4 (prune-zeros (merge-with + portOne portTwo portThree) ))vv
+(def port4 (prune-zeros (merge-with + portOne portTwo portThree) ))
 
 (defn makeSeq 
   "Construct an arbitrary sequence for the pythagorean triples exmaple" 
