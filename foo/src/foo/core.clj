@@ -9,12 +9,11 @@
 
 (take 20 (repeat 10) )
 
-(take 20 (cycle '(1 2 3)))
+(take 20 (cycle '[1 2 3]))
 
 (defn foobar [x] (println x))
 
 (defn foobaz [x] (println x)) 
-
 (defn raporbaz [x] (println x))
 
 ; (spit "/home/andy/foo.txt" "bla\n")
@@ -76,7 +75,7 @@
 (letfn [ 
         (makeSeq [] (range 100) ) 
         (sq [x] ( * x x ))
-        (isTriple [x y z ] (= (+ (sq x) (sq y) ) (sq z)) )
+        (isTriple [x y z] (= (+ (sq x) (sq y) ) (sq z)) )
         ]
   (for [ 
         x (makeSeq) 
