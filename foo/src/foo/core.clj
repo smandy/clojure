@@ -71,6 +71,10 @@
 
 (defn square [x] ( * x x ) )
 
+(defn cube [x] ( * x x x ) )
+
+(cube 100)
+
 (square 3)
 
 ;(merge-with + portOne portTwo portThree)

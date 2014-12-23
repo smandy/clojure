@@ -1,4 +1,4 @@
-(ns clj-automata.core
+c(ns clj-automata.core
   "This module visualizes elementary cellular automata. It's primarily intended
    to show off the fun aspects of functional programming and lazy-sequences in clojure to those who are coming from an OO background.
 
@@ -34,7 +34,7 @@
   (:import java.lang.Math))
 
 ;; Colors for each cell
-(def live-color [242 233 99])
+(def live-color [90 233 242])
 (def dead-color [64 37 27])
 
 ;; Elementary automata use a clever trick to allow us to describe an entire rule with only a few numbers.
@@ -139,9 +139,9 @@
   (qc/frame-rate 24))
 
 (defn run-rule [rule-num {:keys [width height scale]}]
-  (let [width (or width 100)
-        height (or height 100)
-        scale (or scale 5) ; Scale factor for rendering
+  (let [width (or width 300)
+        height (or height 300)
+        scale (or scale 2) ; Scale factor for rendering
         ;; Our initial state is a single row of random 0s and 1s
         initial (repeatedly height #(rand-int 2))
         sim (simulation (rule rule-num) initial)
@@ -173,6 +173,6 @@
 
 (defn -main [rule-num & args]
   (run-rule (Integer/valueOf rule-num)
-            {:width 100 :height 100 :scale 4}))
+            {:width 300 :height 300 :scale 3 } )) 
 
-(-main 30)
+(-main 110)
