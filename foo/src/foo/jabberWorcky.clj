@@ -9,26 +9,28 @@
  ( frequencies )
 ))
 
-(def x (agent {} )
-
+(def x (agent {} ))
 (send-off x assoc :foo :bar )
 (send-off x assoc :goo :boo )
-(send-off x assoc :foo :bar )
+(send-off x assoc :sue :bar )
 
 (defn sub [x y] ( - x y ))
 (defn add "Add some shit - duh" [x y] ( + x y ))
 
 (add 2 3)
 
-( ( comp * + ) 3 5 )
-
+( (comp * +) 3 5 )
 ( (comp #( + % 10 ) #( * % 2 )) 200 )
 ( (comp #( + % 10 ) #( * % 2 )) 200 )
 
 (defn wrap [x] (fn [y] (format ( format "%s(%%s)" x ) y ) ) )
 
-( (comp #( format "f(%s)" %1 ) 
-        #( format "g(%s)" %1 ) ) "foo")
+(defn make-fmt [c]
+  #( format "%s(%s)" c %1 )
+  )
+
+( (comp (make-fmt "f")
+        (make-fmt "g") ) "foo")
 
 (defn return-pair [] [2 3] )
 

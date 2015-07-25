@@ -1,0 +1,6 @@
+*~
+\#*\#
+\.\#*
+*.log
+/foo/.nrepl-port
+/foo/target/*
